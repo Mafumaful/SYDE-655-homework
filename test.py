@@ -2,7 +2,7 @@ import gym
 import random
 
 # Create the environment
-env = gym.make('CartPole-v1', render_mode="human")
+env = gym.make('CartPole-v1')
 env.reset()
 env.render()
 print(env.observation_space)
