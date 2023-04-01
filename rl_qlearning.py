@@ -6,31 +6,34 @@ import random
 class Q_learning:
     def __init__(self, env):
         # initialize the environment
-        self.buckets = 5  # number of buckets
-        self.alpha = 0.5  # learning rate
+        self.buckets = 10  # number of buckets
+        self.alpha = 0.1  # learning rate
         self.gamma = 0.9  # discount factor
-        self.epsilon = 0.9  # exploration rate
+        self.epsilon = 1  # exploration rate
         self.action = 2  # number of actions
         self.env = env  # environment
 
         self.episode = 1000  # number of episodes
 
+        self.update = True  # update the Q-table
+
         # initialize the Q-table with random values
         self.q_table = np.random.uniform(
             size=(self.buckets, self.buckets, self.buckets, self.buckets, self.action
                   ))
+        print(self.q_table)
+        print(self.q_table.shape)
 
         self.reward_history = []
 
     # discretize the state
     def discretize(self, continuous_state):
-        continuous_state = [x-0.5 for x in continuous_state]
         state = [0, 0, 0, 0]
         # set up dimension states
-        state[0] = np.linspace(-4.8, 4.8, self.buckets+1)[1:-1]
+        state[0] = np.linspace(-2.4, 2.4, self.buckets+1)[1:-1]
         state[1] = np.linspace(-3.0, 3.0, self.buckets+1)[1:-1]
-        state[2] = np.linspace(-0.418, 0.418, self.buckets+1)[1:-1]
-        state[3] = np.linspace(-2.0, 2.0, self.buckets+1)[1:-1]
+        state[2] = np.linspace(-0.2, 0.2, self.buckets+1)[1:-1]
+        state[3] = np.linspace(-3.0, 3.0, self.buckets+1)[1:-1]
 
         result = [0, 0, 0, 0]
         # discretize the state
@@ -65,8 +68,7 @@ class Q_learning:
             rewards = []
             state, _ = self.env.reset()
             state = list(state)
-            action = self.choose_action(state)
-            print("current episode {}".format(current_episode))
+            # print("current episode {}".format(current_episode))
             end = False
             while not end:
                 stateindex = self.discretize(state)  # discretize state
@@ -77,21 +79,24 @@ class Q_learning:
                 statenext = list(statenext)  # list state
                 statenextindex =\
                     self.discretize(statenext)  # know the index of state
+                print(statenextindex)
                 # return the index of the maximum value
                 QMaxOfNext = np.max(self.q_table[statenextindex])
+                # print("QMaxOfNext {}".format(self.q_table[statenextindex]))
 
                 # update the Q-table
-                if not end:
-                    error = reward + self.gamma * QMaxOfNext -\
-                        self.q_table[stateindex][action_a]
-                    self.q_table[stateindex][action_a] =\
-                        self.q_table[stateindex][action_a] + \
-                        self.alpha * error
-                else:
-                    error = reward - self.q_table[stateindex][action_a]
-                    self.q_table[stateindex][action_a] =\
-                        self.q_table[stateindex][action_a] + \
-                        self.alpha * error
+                if self.update == True:
+                    if not end:
+                        error = reward + self.gamma * QMaxOfNext -\
+                            self.q_table[stateindex][action_a]
+                        self.q_table[stateindex][action_a] =\
+                            self.q_table[stateindex][action_a] + \
+                            self.alpha * error
+                    else:
+                        error = reward - self.q_table[stateindex][action_a]
+                        self.q_table[stateindex][action_a] =\
+                            self.q_table[stateindex][action_a] + \
+                            self.alpha * error
                 state = statenext
-            print("reward {}".format(sum(rewards)))
+            # print("reward {}".format(sum(rewards)))
             self.reward_history.append(sum(rewards))
