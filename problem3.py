@@ -10,29 +10,14 @@ if __name__ == '__main__':
     rl_qlearning.simulate()
     # plot the figuire
     y = rl_qlearning.reward_history
+
+    n = 50
     # calculate the average reward per 50 episodes
-    y = [sum(y[i:i+50])/50 for i in range(0, len(y), 50)]
+    y = [sum(y[i:i+n])/n for i in range(0, len(y), n)]
     x = range(len(y))
-    x = [i*50 for i in x]
+    x = [i*n for i in x]
     plt.plot(x, y)
     plt.xlabel('Episode')
     plt.ylabel('Sum of Rewards in Episode')
     # save the figure
     plt.savefig('convergence.png')
-
-    # change the epsilon
-    rl_qlearning.update = False
-    rl_qlearning.epsilon = 0
-    rl_qlearning.reward_history = []
-    rl_qlearning.simulate()
-    y = rl_qlearning.reward_history
-
-    # plot the figure
-    y = [sum(y[i:i+50])/50 for i in range(0, len(y), 50)]
-    x = range(len(y))
-    x = [i*50 for i in x]
-    plt.plot(x, y)
-    plt.xlabel('Episode')
-    plt.ylabel('Sum of Rewards in Episode')
-    # save the figure
-    plt.savefig('convergence after.png')
