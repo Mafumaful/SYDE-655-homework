@@ -13,7 +13,7 @@ class Q_learning:
         self.action = 2  # number of actions
         self.env = env  # environment
 
-        self.episode = 10000  # number of episodes
+        self.episode = 5000  # number of episodes
 
         self.update = True  # update the Q-table
 
@@ -97,8 +97,8 @@ class Q_learning:
                 state = statenext
 
             # print the reward every 50 episodes
-            if current_episode % self.print_step == 0:
-                print("current episode {}".format(current_episode))
+            if (current_episode+1) % self.print_step == 0:
+                print("current episode {}".format(current_episode+1))
                 print("reward {}".format(sum(rewards)))
 
             self.reward_history.append(sum(rewards))

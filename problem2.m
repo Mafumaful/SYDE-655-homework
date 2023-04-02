@@ -3,33 +3,31 @@ clc
 
 %% set the parameters
 % set the sampling time
-Ts = 0.1;
+Ts = 0.01;
+T_total = 10;
+% samples
+Nsim = T_total / Ts;
 
 %% simulation
 % create a plant model
 G = tf(1, [1 2 10]);
-% create a mpc controller
-mpc = mpc(G, Ts);
-% set the prediction horizon
-mpc.PredictionHorizon = 5;
-% set the control horizon
-mpc.ControlHorizon = 5;
-% set the weights
-mpc.Weights.MV = 1;
-mpc.Weights.MVRate = 0.1;
-mpc.Weights.OV = 1;
-mpc.Weights.ECR = 1;
-% set the initial state
-x0 = 0;
-% set the reference
-r = 1;
-% set the simulation time
-T = 10;
-% create a simulation model
-sim = mpcsim(mpc, T);
-% set the initial state
-sim.InitialCondition = x0;
-% set the reference
-sim.Ref = r;
-% run the simulation
-sim.run;
+% return state-space model
+[A, B, C, D] = ssdata(G);
+% create the model
+model = LTISystem('A', A, 'B', B, 'C', C, 'D', D, 'Ts', Ts);
+model.u.penalty = QuadFunction(diag(3));
+model.y.penalty = QuadFunction(diag(10));
+
+% set reference, in the first 5 seconds, the reference is 1, then it is 0
+yref = [ones(1, 5 / Ts), zeros(1, 5 / Ts)];
+model.y.with('reference');
+model.y.reference = 'free';
+
+ctrl = MPCController(model, 6);
+loop = ClosedLoop(ctrl, model);
+x0 = [0; 0];
+
+data = loop.simulate(x0, Nsim, 'y.reference', yref);
+
+plot(1:Nsim, data.Y);
+hold on;

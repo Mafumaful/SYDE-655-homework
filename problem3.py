@@ -20,4 +20,4 @@ if __name__ == '__main__':
     plt.xlabel('Episode')
     plt.ylabel('Sum of Rewards in Episode')
     # save the figure
-    plt.savefig('convergence.png')
+    plt.savefig('graph/convergence 500.png')
