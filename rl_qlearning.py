@@ -69,6 +69,7 @@ class Q_learning:
             state, _ = self.env.reset()
             state = list(state)
             end = False
+            epsilon = self.epsilon
             while not end:
                 stateindex = self.discretize(state)  # discretize state
                 action_a = self.choose_action(state)  # choose action
@@ -80,6 +81,11 @@ class Q_learning:
                     self.discretize(statenext)  # know the index of state
                 # return the index of the maximum value
                 QMaxOfNext = np.max(self.q_table[statenextindex])
+
+                # current_len = len(rewards)
+                # # dapen epsilon
+                if len(rewards) > 250:
+                    self.epsilon -= 0
 
                 # update the Q-table
                 if self.update == True:
