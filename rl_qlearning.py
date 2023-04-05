@@ -9,8 +9,10 @@ class Q_learning:
         self.buckets = 10  # number of buckets
         self.alpha = 0.1  # learning rate
         self.gamma = 0.9  # discount factor
-        self.epsilon = 0.3  # exploration rate
+        self.epsilon = 1  # exploration rate
         self.action = 2  # number of actions
+        self.epsilon_decay = 0.997  # decay of exploration rate
+        self.epsilon_min = 0.01  # minimum exploration rate
         self.env = env  # environment
 
         self.episode = 5000  # number of episodes
@@ -25,6 +27,8 @@ class Q_learning:
         self.print_step = 50  # print the reward every 50 episodes
 
         self.reward_history = []
+
+        self.print_out = False  # print the reward
 
     # discretize the state
     def discretize(self, continuous_state):
@@ -64,12 +68,14 @@ class Q_learning:
 
     # simulate
     def simulate(self):
+        epsilon = self.epsilon
         for current_episode in range(self.episode):
             rewards = []
             state, _ = self.env.reset()
             state = list(state)
             end = False
-            epsilon = self.epsilon
+            # decay the exploration rate
+            epsilon = max(self.epsilon_min, epsilon*self.epsilon_decay)
             while not end:
                 stateindex = self.discretize(state)  # discretize state
                 action_a = self.choose_action(state)  # choose action
@@ -81,11 +87,6 @@ class Q_learning:
                     self.discretize(statenext)  # know the index of state
                 # return the index of the maximum value
                 QMaxOfNext = np.max(self.q_table[statenextindex])
-
-                # current_len = len(rewards)
-                # # dapen epsilon
-                if len(rewards) > 250:
-                    self.epsilon -= 0
 
                 # update the Q-table
                 if self.update == True:
@@ -103,8 +104,9 @@ class Q_learning:
                 state = statenext
 
             # print the reward every 50 episodes
-            if (current_episode+1) % self.print_step == 0:
+            if (current_episode+1) % self.print_step == 0 and self.print_out == True:
                 print("current episode {}".format(current_episode+1))
                 print("reward {}".format(sum(rewards)))
+                print("decay {}".format(epsilon))
 
             self.reward_history.append(sum(rewards))
