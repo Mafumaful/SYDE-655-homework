@@ -48,6 +48,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -152,7 +156,22 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./graph/graph 1.png
+INPUT ./graph/graph 1.png
+INPUT ./graph/graph 1.png
+INPUT ./graph/graph a.png
+INPUT ./graph/graph a.png
+INPUT ./graph/graph a.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT ./graph/graph b.png
+INPUT ./graph/graph b.png
+INPUT ./graph/graph b.png
+INPUT ./graph/graph c.png
+INPUT ./graph/graph c.png
+INPUT ./graph/graph c.png
+INPUT ./graph/graph d.png
+INPUT ./graph/graph d.png
+INPUT ./graph/graph d.png
 INPUT latex_build/Assignment2.aux
 INPUT latex_build/Assignment2.out
 INPUT latex_build/Assignment2.out

@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1680651475 "/home/miakho/code/SYDE-655-homework/Assignment2.tex" "latex_build/Assignment2.pdf" "Assignment2" 1680651475 0
+["pdflatex"] 1680670209 "/home/miakho/code/SYDE-655-homework/Assignment2.tex" "latex_build/Assignment2.pdf" "Assignment2" 1680670209 0
   "/etc/texmf/web2c/texmf.cnf" 1676678844 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/miakho/code/SYDE-655-homework/Assignment2.tex" 1680651475 449 78891743d1d6abce5f4693f21f0067fa ""
+  "/home/miakho/code/SYDE-655-homework/Assignment2.tex" 1680670198 1283 83447af3c258e6d166fca11a4917f752 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -59,6 +59,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty" 1576625391 3935 57aa3c3e203a5c2effb4d2bd2efbc323 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1580683321 20023 e427dd9e17e239bf926ef3aab67fe35e ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1580683321 8446 9874cccac5fee462272c582807dbbf56 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty" 1578175482 57350 70b0c251b0022f1db12ad7dd4c1aa547 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty" 1578175482 62012 5e9d40ecd926a6f500919e4c7e1480de ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
@@ -88,9 +90,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1676678851 4466278 956ccdc8d57f396eef7b8798b3b11e08 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1676678853 4877413 a58446baed07bf02cbbe0f8327f8b431 ""
-  "Assignment2.tex" 1680651475 449 78891743d1d6abce5f4693f21f0067fa ""
-  "latex_build/Assignment2.aux" 1680651475 817 6089fdf05e65409ab520f5e994962d5f "pdflatex"
-  "latex_build/Assignment2.out" 1680651475 44 1d86cf263e38a636ba6bc97ecdb8e88d "pdflatex"
+  "Assignment2.tex" 1680670198 1283 83447af3c258e6d166fca11a4917f752 ""
+  "graph/graph 1.png" 1680669985 311505 046cc92c3b916a6004479669712c3e7c ""
+  "graph/graph a.png" 1680668141 35755 3a06ded15410bb500c5f36092ed67423 ""
+  "graph/graph b.png" 1680668152 40440 341f71ca71a935b436e2433e32a12345 ""
+  "graph/graph c.png" 1680668161 43091 799ddaa333b300295806ffd126d2bd70 ""
+  "graph/graph d.png" 1680668171 37384 67b84de6feb6b01bf42690f017907ee7 ""
+  "latex_build/Assignment2.aux" 1680670209 1827 45a1f0d100a787dbadf418b4dfee851c "pdflatex"
+  "latex_build/Assignment2.out" 1680670209 132 1cd3581cfc13dbf42d20ebca254d4ccb "pdflatex"
   (generated)
   "latex_build/Assignment2.aux"
   "latex_build/Assignment2.log"

@@ -1,3 +1,15 @@
 __pycache__
 .vscode
 test*
+# latex ignore
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.gz
+*.dvi

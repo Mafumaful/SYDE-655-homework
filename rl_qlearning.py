@@ -49,9 +49,8 @@ class Q_learning:
         return tuple(result)
 
     # select an action based on the Q-table and the exploration rate
-    def choose_action(self, state):
-
-        if random.uniform(0, 1) < self.epsilon:
+    def choose_action(self, state, epsilon=1):
+        if random.uniform(0, 1) < epsilon:
             # choose a random action
             action = np.random.choice(self.action)
         else:
@@ -78,7 +77,8 @@ class Q_learning:
             epsilon = max(self.epsilon_min, epsilon*self.epsilon_decay)
             while not end:
                 stateindex = self.discretize(state)  # discretize state
-                action_a = self.choose_action(state)  # choose action
+                action_a = self.choose_action(
+                    state, epsilon=epsilon)  # choose action
                 statenext, reward, end, _, _ = self.env.step(
                     action_a)  # take action
                 rewards.append(reward)  # add reward
