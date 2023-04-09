@@ -37,6 +37,7 @@ data = loop.simulate(x0, Nsim, 'u.previous', u0, 'y.reference', yref);
 
 subplot(2, 1, 1); hold on;
 %% plot the results
+% legend('y', 'yref')
 plot(1:Nsim, data.Y(1:Nsim), 'linewidth', 2);
 stairs(1:Nsim, yref, 'r--', 'linewidth', 2);
 axis([1, Nsim, -0.5, 1.5]);
